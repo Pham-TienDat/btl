@@ -58,7 +58,7 @@ public class Player extends Sprite {
 
     public boolean isInvincible = false; // Trạng thái bất tử tạm thời
     public long lastHitTime; // Thời gian lần cuối bị trúng đạn
-    public long lastBuffTime; // Thời gian lần cuối bị trúng đạn
+    public long lastBuffTime; // Thời gian lần cuối buff
     public long invincibilityDuration = 1000; // Thời gian bất tử tạm thời (2 giây)
 
     public boolean isInvincible() {

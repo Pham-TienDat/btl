@@ -41,7 +41,7 @@ public class Panel extends JPanel implements Runnable {
     int FPS= 60;
     //Điểm số
     public int score=0;
-    public void ResetScore(){
+    private void ResetScore(){
         score = 0;
     }
     public Boolean lv1=true;
@@ -95,6 +95,8 @@ public class Panel extends JPanel implements Runnable {
         ui.playTime = 0;
         player.life = 3;
         player.alive = true;
+        lv2 = false;
+        lv3 = false;
         setGameOver(false);
         set.setAlien();
         set.setBullet();
@@ -240,7 +242,7 @@ public void run() {
         for(int i=0;i<5;i++){
             bullet[i].update_lv3();}
         }
-        long currentTime = System.currentTimeMillis();
+
         //triệu hồi bonusEnemy, bắn hạ thì được buff invincible tầm 4s,
         if (!this.bonusEnemyList.isEmpty()) {
             for(int answer = 0; answer < this.bonusEnemyList.size(); ++answer) {
@@ -254,11 +256,9 @@ public void run() {
             for(int answer = 0; answer < this.bonusEnemyList.size(); ++answer) {
                 if(bom.x+bom.width>=((BonusEnemy)this.bonusEnemyList.get(answer)).getXPosition() && bom.x<=((BonusEnemy)this.bonusEnemyList.get(answer)).getXPosition()+((BonusEnemy)this.bonusEnemyList.get(answer)).width && bom.y<=((BonusEnemy)this.bonusEnemyList.get(answer)).getYPosition()+((BonusEnemy)this.bonusEnemyList.get(answer)).height && bom.y+bom.height>=((BonusEnemy)this.bonusEnemyList.get(answer)).getYPosition()) {
                     this.bonusEnemyList.remove(answer);
-                    player.buffInvincible();
+                    if (player.life<3)
+                    player.life++;
                     this.newBonusEnemy = true;
-                    if (player.isInvincible() && currentTime - player.lastHitTime > 10000) {
-                        player.isInvincible = false; // Kết thúc trạng thái bất tử tạm thời
-                    }
                 }
             }
         }
