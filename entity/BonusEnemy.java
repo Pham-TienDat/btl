@@ -37,7 +37,7 @@ public class BonusEnemy extends Sprite{
     }
     public void draw(Graphics2D g2){
         if(alive==true){
-            bonusEnemySkin = new ImageIcon(getClass().getResource("/Image/bonusEnemy.gif"));
+            bonusEnemySkin = new ImageIcon(getClass().getResource("/Image/BonusEnemy.png"));
             g2.drawImage(bonusEnemySkin.getImage(), x, y, null);
         }
     }

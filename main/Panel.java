@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.*;
 
@@ -105,6 +107,7 @@ public class Panel extends JPanel implements Runnable {
         ui.playTime = 0;
         player.life = 3;
         player.alive = true;
+        bom.alive = false;
         lv2 = false;
         lv3 = false;
         setGameOver(false);
